@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtWidgets import QApplication
 from random import randint
+import sys
 
 
 class Ui_MainWindow(object):
@@ -75,7 +76,6 @@ class Ui_MainWindow(object):
 
     def rand_pass(self):
         self.textEdit_2.setText("")
-
         generated_pass = ''
 
         pass_len = int(self.textEdit.toPlainText())
@@ -88,9 +88,39 @@ class Ui_MainWindow(object):
     def copy_pass(self):
         pass
 
+
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
+    style = """
+        QWidget#MainWindow {
+            background-image: url('bg.svg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        
+        QWidget {
+            color: #fff;
+        }
+        
+        QTextEdit {
+            border: 2px solid #fff;
+            border-radius: 8px;
+            color: black;
+        }
+        
+        QPushButton {
+            border-radius: 8px;
+            background-color: #fff;
+            color: black;
+            border: 2px solid black;
+            transition: .2s;
+        }
+        
+        QPushButton:hover {
+            cursor: pointer;
+        }
+    """
+    app.setStyleSheet(style)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
