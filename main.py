@@ -91,36 +91,9 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    style = """
-        QWidget#MainWindow {
-            background-image: url('bg.svg');
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-        
-        QWidget {
-            color: #fff;
-        }
-        
-        QTextEdit {
-            border: 2px solid #fff;
-            border-radius: 8px;
-            color: black;
-        }
-        
-        QPushButton {
-            border-radius: 8px;
-            background-color: #fff;
-            color: black;
-            border: 2px solid black;
-            transition: .2s;
-        }
-        
-        QPushButton:hover {
-            cursor: pointer;
-        }
-    """
-    app.setStyleSheet(style)
+    css = "style.css"
+    with open(css, "r") as fh:
+        app.setStyleSheet(fh.read())
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
