@@ -8,8 +8,18 @@ QWidget {
     color: #fff;
 }
 
+QFrame {
+    background-color: #001d33;
+    border-radius: 8px;
+}
+
+QLabel {
+    font-weight: 900;
+}
+
 QTextEdit {
-    border: 2px solid #fff;
+    background-color: #fff;
+    border: 2px solid black;
     border-radius: 8px;
     color: black;
 }
@@ -19,9 +29,8 @@ QPushButton {
     background-color: #fff;
     color: black;
     border: 2px solid black;
-    transition: .2s;
 }
 
 QPushButton:hover {
-    cursor: pointer;
+    background-color: #D3D3D3;
 }
